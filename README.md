@@ -1,4 +1,4 @@
-# Connect-4-1.0
+# Connect-Four-1.0
 Finished the basic Java course from programmieren-starten.de
 
 Fourth real practice project to consolidate what I've learned there.
