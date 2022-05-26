@@ -94,40 +94,63 @@ public class Board {
     }
 
     public boolean winCheck() {
+        int drawCheck = 0;
         for(int y = 0; y < fields.length; y++) {
             for(int x = 0; x < fields[0].length; x++) {
+                if(fields[y][x].isOccupied()) {
+                    drawCheck++;
+                }
                 if((x <= 3) && (fields[y][x].isOccupied() && fields[y][x + 1].isOccupied() && fields[y][x + 2].isOccupied() && fields[y][x + 3].isOccupied())) {
-                    if(fields[y][x].getStatus() == 'x') {
+                    if((fields[y][x].getStatus() == 'x') && (fields[y][x + 1].getStatus() == 'x') && (fields[y][x + 2].getStatus() == 'x') && (fields[y][x + 3].getStatus() == 'x')) {
                         System.out.println("Congratulations player 1 (x, red), you have won the game!");
                         return true;
-                    } else if(fields[y][x].getStatus() == 'o') {
+                    } else if((fields[y][x].getStatus() == 'o') && (fields[y][x + 1].getStatus() == 'o') && (fields[y][x + 2].getStatus() == 'o') && (fields[y][x + 3].getStatus() == 'o')) {
                         System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
                         return true;
                     }
                 } else if((x > 3) && (fields[y][x].isOccupied() && fields[y][x - 1].isOccupied() && fields[y][x - 2].isOccupied() && fields[y][x - 3].isOccupied())) {
-                    if(fields[y][x].getStatus() == 'x') {
+                    if((fields[y][x].getStatus() == 'x') && (fields[y][x - 1].getStatus() == 'x') && (fields[y][x - 2].getStatus() == 'x') && (fields[y][x - 3].getStatus() == 'x')) {
                         System.out.println("Congratulations player 1 (x, red), you have won the game!");
                         return true;
-                    } else if(fields[y][x].getStatus() == 'o') {
+                    } else if((fields[y][x].getStatus() == 'o') && (fields[y][x - 1].getStatus() == 'o') && (fields[y][x - 2].getStatus() == 'o') && (fields[y][x - 3].getStatus() == 'o')) {
                         System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
                         return true;
                     }
                 } else if((y <= 2) && (fields[y][x].isOccupied() && fields[y + 1][x].isOccupied() && fields[y + 2][x].isOccupied() && fields[y + 3][x].isOccupied())) {
-                    if(fields[y][x].getStatus() == 'x') {
+                    if((fields[y][x].getStatus() == 'x') && (fields[y + 1][x].getStatus() == 'x') && (fields[y + 2][x].getStatus() == 'x') && (fields[y + 3][x].getStatus() == 'x')) {
                         System.out.println("Congratulations player 1 (x, red), you have won the game!");
                         return true;
-                    } else if(fields[y][x].getStatus() == 'o') {
+                    } else if((fields[y][x].getStatus() == 'o') && (fields[y + 1][x].getStatus() == 'o') && (fields[y + 2][x].getStatus() == 'o') && (fields[y + 3][x].getStatus() == 'o')) {
                         System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
                         return true;
                     }
                 } else if((y > 2) && (fields[y][x].isOccupied() && fields[y - 1][x].isOccupied() && fields[y - 2][x].isOccupied() && fields[y - 3][x].isOccupied())) {
-                    if(fields[y][x].getStatus() == 'x') {
+                    if((fields[y][x].getStatus() == 'x') && (fields[y - 1][x].getStatus() == 'x') && (fields[y - 2][x].getStatus() == 'x') && (fields[y - 3][x].getStatus() == 'x')) {
                         System.out.println("Congratulations player 1 (x, red), you have won the game!");
                         return true;
-                    } else if(fields[y][x].getStatus() == 'o') {
+                    } else if((fields[y][x].getStatus() == 'o') && (fields[y - 1][x].getStatus() == 'o') && (fields[y - 2][x].getStatus() == 'o') && (fields[y - 3][x].getStatus() == 'o')) {
                         System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
                         return true;
                     }
+                } else if(((x <= 3) && (y <= 2)) && (fields[y][x].isOccupied() && fields[y + 1][x + 1].isOccupied() && fields[y + 2][x + 2].isOccupied() && fields[y + 3][x + 3].isOccupied())) {
+                    if((fields[y][x].getStatus() == 'x') && (fields[y + 1][x + 1].getStatus() == 'x') && (fields[y + 2][x + 2].getStatus() == 'x') && (fields[y + 3][x + 3].getStatus() == 'x')) {
+                        System.out.println("Congratulations player 1 (x, red), you have won the game!");
+                        return true;
+                    } else if((fields[y][x].getStatus() == 'o') && (fields[y + 1][x + 1].getStatus() == 'o') && (fields[y + 2][x + 2].getStatus() == 'o') && (fields[y + 3][x + 3].getStatus() == 'o')) {
+                        System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
+                        return true;
+                    }
+                } else if(((x > 3) && (y > 2)) && (fields[y][x].isOccupied() && fields[y - 1][x - 1].isOccupied() && fields[y - 2][x - 2].isOccupied() && fields[y - 3][x - 3].isOccupied())) {
+                    if((fields[y][x].getStatus() == 'x') && (fields[y - 1][x - 1].getStatus() == 'x') && (fields[y - 2][x - 2].getStatus() == 'x') && (fields[y - 3][x - 3].getStatus() == 'x')) {
+                        System.out.println("Congratulations player 1 (x, red), you have won the game!");
+                        return true;
+                    } else if((fields[y][x].getStatus() == 'o') && (fields[y - 1][x - 1].getStatus() == 'o') && (fields[y - 2][x - 2].getStatus() == 'o') && (fields[y - 3][x - 3].getStatus() == 'o')) {
+                        System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
+                        return true;
+                    }
+                } else if(drawCheck == 42) {
+                    System.out.println("The game is a draw!");
+                    return true;
                 }
             }
         }

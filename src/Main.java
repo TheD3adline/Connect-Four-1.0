@@ -9,6 +9,12 @@ public class Main {
                 board.draw();
                 System.exit(0);
             }
+            board.draw();
+            board.turnP2();
+            if(board.winCheck()) {
+                board.draw();
+                System.exit(0);
+            }
         }
     }
 
