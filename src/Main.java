@@ -2,7 +2,10 @@ public class Main {
     public static void main(String[] args) {
 
         Board board = new Board();
-        board.draw();
+        while(true) {
+            board.draw();
+            board.turnP1();
+        }
     }
 
     public void run() {
