@@ -93,6 +93,47 @@ public class Board {
         }
     }
 
+    public boolean winCheck() {
+        for(int y = 0; y < fields.length; y++) {
+            for(int x = 0; x < fields[0].length; x++) {
+                if((x <= 3) && (fields[y][x].isOccupied() && fields[y][x + 1].isOccupied() && fields[y][x + 2].isOccupied() && fields[y][x + 3].isOccupied())) {
+                    if(fields[y][x].getStatus() == 'x') {
+                        System.out.println("Congratulations player 1 (x, red), you have won the game!");
+                        return true;
+                    } else if(fields[y][x].getStatus() == 'o') {
+                        System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
+                        return true;
+                    }
+                } else if((x > 3) && (fields[y][x].isOccupied() && fields[y][x - 1].isOccupied() && fields[y][x - 2].isOccupied() && fields[y][x - 3].isOccupied())) {
+                    if(fields[y][x].getStatus() == 'x') {
+                        System.out.println("Congratulations player 1 (x, red), you have won the game!");
+                        return true;
+                    } else if(fields[y][x].getStatus() == 'o') {
+                        System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
+                        return true;
+                    }
+                } else if((y <= 2) && (fields[y][x].isOccupied() && fields[y + 1][x].isOccupied() && fields[y + 2][x].isOccupied() && fields[y + 3][x].isOccupied())) {
+                    if(fields[y][x].getStatus() == 'x') {
+                        System.out.println("Congratulations player 1 (x, red), you have won the game!");
+                        return true;
+                    } else if(fields[y][x].getStatus() == 'o') {
+                        System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
+                        return true;
+                    }
+                } else if((y > 2) && (fields[y][x].isOccupied() && fields[y - 1][x].isOccupied() && fields[y - 2][x].isOccupied() && fields[y - 3][x].isOccupied())) {
+                    if(fields[y][x].getStatus() == 'x') {
+                        System.out.println("Congratulations player 1 (x, red), you have won the game!");
+                        return true;
+                    } else if(fields[y][x].getStatus() == 'o') {
+                        System.out.println("Congratulations player 2 (o, yellow), you have won the game!");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public char getPlayer1() {
         return player1;
     }
