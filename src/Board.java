@@ -61,6 +61,38 @@ public class Board {
             }
         }
     }
+
+    public void turnP2() {
+        char turn;
+        boolean valid = false;
+        System.out.println("Player 2 (o, yellow), enter column for your turn (1, 2, 3, 4, 5, 6, 7) and then press enter!");
+        while(!valid) {
+            turn = sc.next().charAt(0);
+            if((turn == '1') || (turn == '2') || (turn == '3') || (turn == '4') || (turn == '5') || (turn == '6') || (turn == '7')) {
+                int x = Character.getNumericValue(turn) - 1;
+                for(int y = 0; y < fields.length; y++) {
+                    if(fields[y][x].isOccupied()) {
+                        if(y == 0) {
+                            System.out.println("The column is full! Pick an empty one!");
+                            break;
+                        } else {
+                            valid = true;
+                            fields[y - 1][x].setStatus(player2);
+                            fields[y - 1][x].setOccupied(true);
+                            break;
+                        }
+                    } else if(y == 5 && !fields[5][x].isOccupied()) {
+                        valid = true;
+                        fields[y][x].setStatus(player2);
+                        fields[y][x].setOccupied(true);
+                    }
+                }
+            } else {
+                System.out.println("Invalid input! Enter only 1, 2, 3, 4, 5, 6, or 7!");
+            }
+        }
+    }
+
     public char getPlayer1() {
         return player1;
     }
