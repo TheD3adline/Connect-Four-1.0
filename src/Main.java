@@ -5,6 +5,7 @@ public class Main {
         Player player1 = new Player(1);
         Player player2 = new Player(2);
         if(Math.random() < 0.5) {
+            System.out.println("The coin flipped heads, Player 1 will begin the round!");
             while(true) {
                 board.draw();
                 board.turn(player1);
@@ -20,6 +21,7 @@ public class Main {
                 }
             }
         } else {
+            System.out.println("The coin flipped heads, Player 2 will begin the round!");
             while(true) {
                 board.draw();
                 board.turn(player2);
