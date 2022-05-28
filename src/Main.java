@@ -2,44 +2,37 @@ public class Main {
     public static void main(String[] args) {
 
         Board board = new Board();
-        while(true) {
-            board.draw();
-            board.turnP1();
-            if(board.winCheck()) {
+        Player player1 = new Player(1);
+        Player player2 = new Player(2);
+        if(Math.random() < 0.5) {
+            while(true) {
                 board.draw();
-                System.exit(0);
-            }
-            board.draw();
-            board.turnP2();
-            if(board.winCheck()) {
+                board.turn(player1);
+                if(board.winCheck(player1)) {
+                    board.draw();
+                    System.exit(0);
+                }
                 board.draw();
-                System.exit(0);
-            }
-        }
-    }
-
-    public void run() {
-        if (Math.random() < 0.5) {
-            System.out.println("The coin flipped heads! Player 1 (x, red) will begin!");
-            //board.draw();
-            while (true) {
-                //board.turnP1();
-                //board.draw();
-                //board.winCheck();
-                //board.turnP2();
-                //board.draw();
-                //board.winCheck();
+                board.turn(player2);
+                if(board.winCheck(player2)) {
+                    board.draw();
+                    System.exit(0);
+                }
             }
         } else {
-            System.out.println("The coin flipped tails! Player 2 (o, yellow) will begin!");
-            //board.draw();
-            while (true) {
-                //board.turnP2();
-                //board.draw();
-                //board.winCheck();
-                //board.turnP1();
-                //board.draw();
-                //board.winCheck();
+            while(true) {
+                board.draw();
+                board.turn(player2);
+                if(board.winCheck(player2)) {
+                    board.draw();
+                    System.exit(0);
+                }
+                board.draw();
+                board.turn(player1);
+                if(board.winCheck(player1)) {
+                    board.draw();
+                    System.exit(0);
+                }
             }
         }
     }
