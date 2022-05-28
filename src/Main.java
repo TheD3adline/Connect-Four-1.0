@@ -21,7 +21,7 @@ public class Main {
                 }
             }
         } else {
-            System.out.println("The coin flipped heads, Player 2 will begin the round!");
+            System.out.println("The coin flipped tails, Player 2 will begin the round!");
             while(true) {
                 board.draw();
                 board.turn(player2);
